@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'ImportExcelController@index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('/import_excel/import', 'ImportExcelController@import');
