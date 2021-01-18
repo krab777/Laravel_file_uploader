@@ -17,9 +17,10 @@ class CreateItemsTable extends Migration
             $table->id();
             $table->string('name')->nullable()->comment('Наименование товара');
             $table->text('manufacturer_part_number')->nullable()->comment('Код модели (артикул производителя)');
+            $table->text('description')->nullable()->comment('Описание товара');
             $table->integer('price')->nullable()->comment('Цена');
             $table->string('warranty')->nullable()->comment('Гарантия');
-            $table->boolean('in_stock')->nullable()->comment('В наличии');
+            $table->string('in_stock')->nullable()->comment('В наличии');
             $table->unsignedBigInteger('rubric_id')->nullable()->index()->comment('Связь с рубрикой');
             $table->foreign('rubric_id')->references('id')->on('rubrics')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('category_id')->nullable()->comment('Связь с категорией');
